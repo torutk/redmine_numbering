@@ -1,0 +1,15 @@
+en:
+  label_numbering: Numbering
+  project_module_numbering: Numbering plugin
+  permission_view_numbering_prefix: View numbering prefix
+  permission_manage_numbering_prefix: Manage numbering prefix
+  permission_view_numbering_item: View numbering item
+  permission_manage_numbering_item: Manage numbering item
+  label_numbering_prefixes_new: New numbering prefix
+  label_numbering_item: Numbering item
+  label_numbering_items_new: New numbering item
+
+  field_fixed: Fixed text
+  field_assigned: Latest number assigned
+  field_subject: Subject
+  field_manage: Management

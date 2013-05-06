@@ -1,0 +1,34 @@
+<div class="contextual">
+<%= link_to_if_authorized(l(:button_edit),
+    {:action => 'edit', :project_id => @project, :id => @numbering_item.id,
+     :numbering_prefix_id => @numbering_prefix.id},
+    :class => 'icon icon-edit') %>
+<%= link_to_if_authorized(l(:button_delete),
+    {:action => 'destroy', :project_id => @project, :id => @numbering_item.id,
+     :numbering_prefix_id => @numbering_prefix.id},
+    :comfirm => l(:text_are_you_sure), :method => :delete,
+    :class => 'icon icon-del') %>
+</div>
+
+<h2><%=link_to_if_authorized(l(:label_numbering_item),
+       {:action => 'index', :project_id => @project,
+        :numbering_prefix_id => @numbering_prefix.id}) %>#<%= @numbering_item.id %></h2>
+
+<div class="box">
+<table class="attributes">
+  <tbody>
+    <tr>
+      <th><%=h l(:label_numbering) %></th>
+      <td><strong><%= @numbering_prefix.fixed %><%= sprintf('%05d', @numbering_item.number) %></strong></td>
+    </tr>
+    <tr>
+      <th><%=h l(:field_subject) %></th><td><%= @numbering_item.subject %></td>
+    </tr>
+    <% unless @numbering_item.description.blank? %>
+    <tr>
+      <th><%=h l(:field_description) %></th><td><%= textilizable @numbering_item.description %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

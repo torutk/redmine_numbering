@@ -1,0 +1,38 @@
+<div class="contextual">
+  <%= link_to_if_authorized(l(:label_numbering_prefixes_new),
+      {:action => 'new', :project_id => @project},
+      :class => 'icon icon-add') %>
+</div>
+
+<h2><%=h l(:label_numbering) %></h2>
+
+<% if @numbering_prefixes.blank? %>
+  <p class="nodata"><%= l(:label_no_data) %></p>
+<% else %>
+  <table class="list">
+    <thead>
+      <tr>
+	<th>#</th>
+	<th><%=h l(:field_fixed) %></th>
+	<th><%=h l(:field_assigned) %></th>
+	<th><%=h l(:field_subject) %></th>
+        <th colspan="2"><%=h l(:field_manage) %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @numbering_prefixes.each do |prefix| %>
+        <tr class="<%= cycle('odd', 'even') %>">
+	  <td><%= prefix.id %></td>
+	  <td><%= link_to prefix.fixed,
+                  project_numbering_items_path(:numbering_prefix_id => prefix) %></td>
+	  <td align="center"><%= prefix.assigned %></td>
+	  <td><%= prefix.subject %></td>
+	  <td><%= link_to l(:button_edit),
+		  edit_project_numbering_prefix_path(@project, prefix),
+		  :class => 'icon icon-edit' %></td>
+	  <td><%= delete_link project_numbering_prefix_path(@project, prefix) %></td>
+	</tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

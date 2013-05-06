@@ -1,0 +1,6 @@
+<%= labelled_form_for :numbering_prefix, @numbering_prefix,
+    :url => project_numbering_prefixes_path(@project) do |f| %>
+  <%= render :partial => 'numbering_prefixes/form', :locals => {:form => f} %>
+  <%= f.submit l(:button_create) %>
+<% end %>
+

@@ -1,0 +1,15 @@
+ja:
+  label_numbering: 採番
+  project_module_numbering: 採番プラグイン
+  permission_view_numbering_prefix: 採番系列の閲覧
+  permission_manage_numbering_prefix: 採番系列の管理
+  permission_view_numbering_item: 採番項目の閲覧
+  permission_manage_numbering_item: 採番項目の管理
+  label_numbering_prefixes_new: 新規採番系列
+  label_numbering_item: 採番項目
+  label_numbering_items_new: 新規採番
+
+  field_fixed: 固定文字列
+  field_assigned: 採番済み番号
+  field_subject: 題名
+  field_manage: 管理

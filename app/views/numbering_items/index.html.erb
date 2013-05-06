@@ -1,0 +1,33 @@
+<div class="contextual">
+  <%= link_to_if_authorized(l(:label_numbering_items_new),
+      {:action => 'new', :project_id => @project,
+       :numbering_prefix_id => @numbering_prefix},
+      :class => 'icon icon-add') %>
+</div>
+
+<h2><%=h l(:label_numbering) %></h2>
+
+<% if @numbering_items.blank? %>
+  <p class="nodata"><%= l(:label_no_data) %></p>
+<% else %>
+  <table class="list">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th><%=h l(:label_numbering) %></th>
+        <th><%=h l(:field_subject) %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @numbering_items.each do |item| %>
+        <tr class="<%= cycle('odd', 'even') %>">
+          <td><%= item.id %></td>
+          <td><%= @numbering_prefix.fixed %><%= sprintf('%05d', item.number) %></td>
+          <td><%= link_to(item.subject, 
+                  project_numbering_item_path(:id => item, :numbering_prefix_id => @numbering_prefix)) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+

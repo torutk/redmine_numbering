@@ -1,0 +1,7 @@
+<%= labelled_form_for :numbering_item, @numbering_item,
+    :url => project_numbering_items_path(
+                :numbering_prefix_id => @numbering_prefix.id) do |f| %>
+  <h2><%= "固定文字列: #{@numbering_prefix.fixed}" %></h2>
+  <%= render :partial => 'numbering_items/form', :locals => {:form => f} %>
+  <%= f.submit l(:button_create) %>
+<% end %>
